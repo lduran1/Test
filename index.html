@@ -12,8 +12,8 @@
         }
 
         body {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #000000;
             font-family: Arial, sans-serif;
             padding: 20px;
         }
@@ -29,44 +29,90 @@
             font-size: 2.5rem;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .table-wrapper {
+            display: flex;
+            gap: 0;
+            border: 1px solid #000000;
+        }
+
+        .column {
+            flex: 1;
+            border-right: 1px solid #000000;
+        }
+
+        .column:last-child {
+            border-right: none;
+        }
+
+        .column.black {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .column.white {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .column-header {
             padding: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-bottom: 1px solid;
+            text-align: center;
+        }
+
+        .column.black .column-header {
+            border-bottom-color: #ffffff;
+        }
+
+        .column.white .column-header {
+            border-bottom-color: #000000;
         }
 
         .item {
-            background-color: #1a1a1a;
-            border: 1px solid #333333;
-            padding: 30px;
+            padding: 20px;
+            border-bottom: 1px solid;
             text-align: center;
-            border-radius: 8px;
-            min-height: 150px;
+            min-height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .item:hover {
-            border-color: #666666;
-            background-color: #2a2a2a;
+        .column.black .item {
+            border-bottom-color: #333333;
+        }
+
+        .column.white .item {
+            border-bottom-color: #cccccc;
+        }
+
+        .item:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Transition Items</h1>
-        <div class="grid">
-            <div class="item">Item 1</div>
-            <div class="item">Item 2</div>
-            <div class="item">Item 3</div>
-            <div class="item">Item 4</div>
-            <div class="item">Item 5</div>
-            <div class="item">Item 6</div>
-            <div class="item">Item 7</div>
-            <div class="item">Item 8</div>
-            <div class="item">Item 9</div>
+        <div class="table-wrapper">
+            <div class="column black">
+                <div class="column-header">Column 1</div>
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+                <div class="item">Item 4</div>
+                <div class="item">Item 5</div>
+            </div>
+            <div class="column white">
+                <div class="column-header">Column 2</div>
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+                <div class="item">Item 3</div>
+                <div class="item">Item 4</div>
+                <div class="item">Item 5</div>
+            </div>
         </div>
     </div>
 </body>
